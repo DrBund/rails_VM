@@ -10,3 +10,5 @@ depends 'nodejs', '~> 2.4.4'
 depends "ruby_build", "~> 0.8.0"
 depends "apt", "~> 4.0.0"
 depends 'rbenv', '~> 1.7.1'
+depends 'database', '~> 5.1.2'
+depends 'postgresql', '~> 4.0.6'
