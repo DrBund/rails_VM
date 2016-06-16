@@ -1,6 +1,13 @@
 # rails_VM-cookbook
 
 TODO: Enter the cookbook description here.
+Installation: 
+```
+$ vagrant plugin install vagrant omnibus
+$ vagrant plugin install vagrant-berkshelf
+```
+Install [chefDK package](https://downloads.chef.io/chef-dk)
+
 
 ## Supported Platforms
 
