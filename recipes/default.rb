@@ -17,3 +17,21 @@ user node['rails_VM']['user'] do
 end
 
 include_recipe 'nodejs'
+include_recipe 'ruby_build'
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+include_recipe "rbenv::rbenv_vars"
+
+# Install a ruby
+rbenv_ruby "2.3.1"
+
+
+#ruby_build_ruby "2.3.1" do
+#  prefix_path "/usr/local/ruby/ruby-2.3.1"
+#  action      :install
+#end
+
+#ruby_runtime 'myapp' do
+#    provider :ruby_build
+#    version '2.1'
+#end
