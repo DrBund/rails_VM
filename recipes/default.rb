@@ -25,6 +25,8 @@ include_recipe "rbenv::rbenv_vars"
 include_recipe "postgresql::server"
 include_recipe "database::postgresql"
 
+include_recipe "application_ruby"
+
 # Install a ruby
 rbenv_ruby "2.3.1"
 
@@ -43,6 +45,27 @@ postgresql_database_user 'slams' do
   #privileges [:all]
   #database_name 'postgres1'
   #action [:create, :grant]
+end
+
+
+# Rails
+application "demo.nclouds.com" do
+  path "/usr/local/www/demo"
+  owner "demo"
+  group "demo"
+  deploy_key node['demo']['deploy_key']
+  repository 'git@github.com:jtgiri/rails_base.git'
+  revision "HEAD"
+  rails do
+    gems ['bundler']
+    database do
+    database "demo"
+    username "demo"
+   password "awesome_password"
+   end 
+   end
+   passenger_apache2 do
+   end
 end
 
 #ruby_build_ruby "2.3.1" do
