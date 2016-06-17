@@ -25,6 +25,8 @@ include_recipe "rbenv::rbenv_vars"
 include_recipe "postgresql::server"
 include_recipe "database::postgresql"
 
+include_recipe "application_ruby"
+
 #include_recipe "application_ruby"
 
 # Install a ruby
@@ -49,6 +51,14 @@ end
 
 
 # Rails
+application '/srv/myapp' do
+  rails do
+    database 'sqlite3:///db.sqlite3'
+    secret_token 'd78fe08df56c9'
+    migrate true
+  end
+end
+
 #application "demo.nclouds.com" do
 #  path "/usr/local/www/demo"
 #  owner "demo"

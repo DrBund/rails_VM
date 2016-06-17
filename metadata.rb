@@ -12,4 +12,4 @@ depends "apt", "~> 4.0.0"
 depends 'rbenv', '~> 1.7.1'
 depends 'database', '~> 5.1.2'
 depends 'postgresql', '~> 4.0.6'
-#depends 'application_ruby', '~> 4.0.1'
+depends 'application_ruby', '~> 4.0.1'
