@@ -25,13 +25,19 @@ include_recipe "rbenv::rbenv_vars"
 include_recipe "postgresql::server"
 include_recipe "database::postgresql"
 
-include_recipe "application_ruby"
+#include_recipe "application"
+#include_recipe "application_ruby"
 
 #include_recipe "application_ruby"
 
 # Install a ruby
 rbenv_ruby "2.3.1"
 
+# Install rails
+rbenv_gem "rails" do
+  ruby_version "2.3.1"
+  version "5.0.0.rc1"
+end
 
 # create a database connection
 postgresql_connection_info = {
@@ -40,6 +46,7 @@ postgresql_connection_info = {
   :password => node['postgresql']['password']['postgres']
 }
 
+# create / manage a database user
 postgresql_database_user 'slams' do
   connection postgresql_connection_info
   password 'bar'
@@ -51,13 +58,18 @@ end
 
 
 # Rails
-application '/srv/myapp' do
-  rails do
-    database 'sqlite3:///db.sqlite3'
-    secret_token 'd78fe08df56c9'
-    migrate true
-  end
-end
+#application '/srv/myapp' do
+#  rails do
+#    #gems ['bundler']
+#    database do
+#      adapter 'postgres'
+#      username 'postgres'
+#    end
+#    #password => node['postgresql']['password']['postgres']
+#    #secret_token 'd78fe08df56c9'
+#    #migrate true
+#  end
+#end
 
 #application "demo.nclouds.com" do
 #  path "/usr/local/www/demo"
