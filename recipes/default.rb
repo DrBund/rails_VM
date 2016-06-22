@@ -16,6 +16,8 @@ user node['rails_VM']['user'] do
   shell '/bin/bash'
 end
 
+include_recipe 'vim'
+include_recipe 'sqlite'
 include_recipe 'nodejs'
 include_recipe 'ruby_build'
 include_recipe "rbenv::default"
