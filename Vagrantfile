@@ -96,4 +96,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       'recipe[rails_VM::default]'
     ]
   end
+
+  # Setup Vim
+  config.vm.provision "file", source: "provisioning_files/.vimrc", destination: "~/.vimrc"
+  config.vm.provision "shell", path: "bootstrap.sh"
 end
