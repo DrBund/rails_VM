@@ -40,7 +40,8 @@ rbenv_ruby "2.3.1"
 # Install rails
 rbenv_gem "rails" do
   ruby_version "2.3.1"
-  version "5.0.0.rc1"
+  #version "5.0.0.rc1"
+  version "4.2"
 end
 
 # create a database connection
