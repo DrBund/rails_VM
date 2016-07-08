@@ -27,6 +27,8 @@ include_recipe "rbenv::rbenv_vars"
 include_recipe "postgresql::server"
 include_recipe "database::postgresql"
 
+include_recipe 'imagemagick'
+
 #include_recipe "application"
 #include_recipe "application_ruby"
 
